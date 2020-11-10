@@ -1,0 +1,15 @@
+<div class="container container-article pt-3">
+    <h1>{{ .Title }}</h1>
+    <div class="column">
+        <p>📅️ Published {{ dateFormat "January 2, 2006" .Date }}</p>
+        <p>⏰ {{ .ReadingTime }} min read ∙ {{ .WordCount }} words</p>
+    </div>
+    {{ if or .Params.banner .Params.tiny }}
+    <div style="padding-top: 2em;">
+        <figure class="banner">
+            <amp-img alt="{{ .Title }}" src="{{ if .Params.banner }} {{ .Params.banner }} {{else if .Params.tiny }} {{ .Params.tiny }} {{ else }} {{ .Site.Params.og_image }} {{ end }}"
+            class="contain" layout="fill"/>
+        </figure>
+    </div>
+    {{ end }}
+</div>

@@ -1,0 +1,86 @@
+{{ define "main"}}
+{{ partial "body/hero/index.html" .}}
+<div class="container content">
+    <h2 class="t-s p-1">🕒 Recent Article</h2>
+    <div class="columns">
+        {{ $paginate := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+        {{ range $paginate.Pages }}
+        {{ partial "body/card.html" .}}
+        {{ end }}
+    </div>
+    <div class="center">
+        {{ partial "body/children/paginator.html" . }}
+    </div>
+</div>
+<div class="container content">
+    <h2 class="t-s p-1">📦 Category</h2>
+    <div class="columns">
+        <div class="a-i">
+            <div class="card p-1 center">
+                <a href="/dart" class="reset">
+                    <div class="img-wrapper">
+                        <amp-img class="contain" src="https://res.cloudinary.com/w-cotutorial/image/upload/v1575460277/asset/dart_irinxv.webp" width="1" height="1"
+                            heights="100px" layout="responsive" alt="Dart">
+                            <amp-img fallback class="contain" src="https://res.cloudinary.com/w-cotutorial/image/upload/q_10/asset/dart_uare0g.png" width="1"
+                                height="1" heights="100px" layout="responsive" alt="Dart"></amp-img>
+                        </amp-img>
+                    </div>
+                    <h1>Dart</h1>
+                </a>
+            </div>
+        </div>
+        <div class="a-i">
+            <div class="card p-1 center">
+                <a href="/flutter" class="reset">
+                    <div class="img-wrapper">
+                        <amp-img class="contain" src="https://res.cloudinary.com/w-cotutorial/image/upload/v1575460308/asset/flutter_txujrp.webp" width="1" height="1"
+                            heights="100px" layout="responsive" alt="Flutter">
+                            <amp-img fallback class="contain" src="https://res.cloudinary.com/w-cotutorial/image/upload/v1575460307/asset/flutter_d8fz8b.png" width="1"
+                                height="1" heights="100px" layout="responsive" alt="Flutter" />
+                        </amp-img>
+                    </div>
+                    <h1>Flutter</h1>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container content item">
+    <div class="item-info">
+        <h2 class="t-s">About</h2>
+        <p class="mt-1">CoTutorial adalah sebuah website edukasi tentang pemrograman yang bersifat open source. </p>
+        <div class="mt-1">
+            <a href="/about" class="button primary">Go To About</a>
+        </div>
+    </div>
+    <div class="item-image center">
+        <amp-img src="https://res.cloudinary.com/w-cotutorial/image/upload/v1577149854/asset/about.svg" width="1041" height="554" />
+    </div>
+</div>
+<div class="container content item">
+    <div class="item-image center">
+        <amp-img src="https://res.cloudinary.com/w-cotutorial/image/upload/v1577150207/asset/contribution.svg" width="1008" height="665" />
+    </div>
+    <div class="item-info">
+        <h2 class="t-s">Contribution</h2>
+        <p class="mt-1">Anda punya ilmu? buatlah ilmu Anda tersebut lebih berguna untuk semua orang dengan kontribusi d
+            CoTutorial untuk membagikan ilmu Anda.</p>
+        <div class="mt-1">
+            <a href="/contribusi" class="button primary">Contribution Now</a>
+        </div>
+    </div>
+</div>
+<div class="container content item">
+    <div class="item-info">
+        <h2 class="t-s">Subscribe</h2>
+        <p class="mt-1">Jadilah pertama yang mendapatkan informasi artikel terbaru dari kami dengan cara berlangganan di
+            CoTutorial secara gratis.</p>
+        <div class="mt-1">
+            <a href="http://eepurl.com/gGoRSb" target="_blank" rel="noopener" class="button primary">Subscribe</a>
+        </div>
+    </div>
+    <div class="item-image center">
+        <amp-img src="https://res.cloudinary.com/w-cotutorial/image/upload/v1577149996/asset/newsletter.svg" width="960" height="728" />
+    </div>
+</div>
+{{ end }}

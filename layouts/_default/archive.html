@@ -1,0 +1,10 @@
+{{ define "main" }}
+<!-- Banner -->
+{{ partial "body/hero/page.html" . }}
+<article>
+    <div class="container content article">
+        <!-- Range -->
+        {{ range .Site.RegularPages.GroupByDate "2006" }} {{ partial "body/list/archive.html" . }} {{ end }}
+    </div>
+</article>
+{{ end }}

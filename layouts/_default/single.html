@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+{{ if .Params.page }}
+    {{ partial "body/hero/page.html" . }}
+{{ else }}
+    {{ partial "body/hero/article.html" . }}
+{{ end }}
+<div class="container {{ if not .Params.page }} container-article {{ end }}">
+    <div class="content">
+        {{ partial "body/content/_index.html" .}}
+        
+        {{ partial "body/content/bottom.html" . }}
+    </div>
+</div>
+<div class="container">
+    {{ partial "body/content/related.html" .}}
+    {{ partial "body/content/subscribe.html" . }}
+</div>
+{{ end }}

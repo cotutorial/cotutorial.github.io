@@ -1,0 +1,19 @@
+{{ if not (eq .Key "0001") }}
+<!-- Year -->
+<h2 class="mt-1">{{ .Key }}</h2>
+{{ range .Pages.GroupByDate "January" }}
+<div class="mlb">
+    <h3 class="bulan mt-1">{{ .Key }}</h3>
+    <div class="mlb">
+        {{ range .Pages }}
+        <div class="card p-1 mt-1">
+            <a class="reset" aria-label="{{ .Title }}" {{ if .Params.link }}href="{{ .Params.link }}" target="_blank"
+                rel="noopener" {{ else }}href="{{ .RelPermalink }}" {{ end }}>
+                <h3>{{ .Title }}</h3>
+            </a>
+        </div>
+        {{end}}
+    </div>
+</div>
+{{ end }}
+{{ end }}

@@ -1,0 +1,181 @@
+{{ if .IsHome -}}
+<script type="application/ld+json">
+{
+    "@context":         "http://schema.org",
+    "@type":            "WebSite",
+    "image":            "{{ .Site.Params.og_image }}",
+    "license":          "{{ .Site.Params.copyright }}",
+    "name":             "{{ .Site.Title }}",
+    "thumbnailUrl":     "https://cotutorial.github.io//img/logo.svg",
+    "url":              "{{ .Site.BaseURL}}",
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://cse.google.com/cse?cx=001590533446650232000%3Aeeccp1szhaf&ie=UTF-8&q={search_term}",
+        "query-input": "required name=search_term"
+    },
+    "sameAs":           [
+        "https://www.facebook.com/cotutorial",
+        "https://instagram.com/cotutorials"
+    ]
+}
+</script>
+{{- else if .IsPage -}}
+<script type="application/ld+json">
+{
+    "@context":          "http://schema.org",
+    "@type":             "BlogPosting",
+    "image":             [
+        "{{ if .Params.banner }}{{ .Params.banner | safeURL }}{{ else }}{{ .Site.Params.og_image | safeURL }}{{ end }}"
+    ],
+    "url":               "{{ .Permalink}}",
+    "headline":          "{{ .Title}}",
+    {{ if not .Date.IsZero -}}
+    "dateCreated": "{{ .Date.Format "2006-01-02T15:04:05Z"}}",
+    "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z"}}",
+    {{- end }}
+    {{ with .Lastmod -}}
+    "dateModified": "{{ .Format "2006-01-02T15:04:05Z"}}",
+    {{- end }}
+    "inLanguage": "ID",
+    "copyrightYear":     "{{ .Date.Format "2006"}}",
+    "copyrightHolder":   "CoTutorial",    
+    "accountablePerson": {
+        "@type": "Person",
+        "name": "Wisnu Saputra",
+        "url": "https://linkedin.com/in/wisnu-saputra",
+        "sameAs" : [
+            "http://www.facebook.com/wisnusaputradev",
+            "http://instagram.com/wisnuwiry",
+            "http://www.linkedin.com/in/wisnu-saputra",
+            "http://twitter.com/wisnuwiry"
+      ]
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Wisnu Saputra",
+        "url": "https://linkedin.com/in/wisnu-saputra"
+    },
+    "creator": {
+        "@type": "Person",
+        "name": "Wisnu Saputra",
+        "url": "https://linkedin.com/in/wisnu-saputra",
+        "sameAs" : [
+            "http://www.facebook.com/wisnusaputradev",
+            "http://instagram.com/wisnuwiry",
+            "http://www.linkedin.com/in/wisnu-saputra",
+            "http://twitter.com/wisnuwiry"
+      ]
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "CoTutorial",
+        "url": "https://cotutorial.github.io",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ .Site.Params.logo }}",
+            "width":"90",
+            "height":"90"
+        }
+    },
+    "sponsor": {
+        "@type": "Organization",
+        "name": "Santren Koding",
+        "url": "https://santrenkoding.org/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://firebasestorage.googleapis.com/v0/b/santren-koding.appspot.com/o/santrenkoding_logo.png?alt=media&token=83a08081-4259-4b18-8600-c70af12d89bc"
+        }
+    },
+    "mainEntityOfPage": "True",
+    "keywords":          [
+      {{ if isset .Params "tags" }}{{ range .Params.tags }}"{{ . }}",{{ end }}"cotutorial"{{ else if isset .Params "categories" }}{{ range .Params.categories }}"{{ . }}",{{ end }}"cotutorial"{{ else }}"cotutorial"{{ end }}
+    ],
+    "articleSection":    "{{ .Section }}",
+    "wordcount":         {{ .WordCount }},
+    "description":       "{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary | safeHTML}}{{ end }}{{ end }}",
+    "name":              "{{ .Title}}",
+    "license":           "{{ .Site.Params.copyright }}"
+}
+</script>
+{{- end }}
+
+
+
+
+
+<!-- Breadcrumbs for articles -->
+{{ $urlParts := sub (len (split .RelPermalink "/")) 2 }}
+
+<!-- Post pages -->
+{{ if eq $urlParts 3 }}
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Site",
+		"item": "{{ .Site.BaseURL }}"
+	},{
+		"@type": "ListItem",
+		"position": 2,
+		"name": "{{ .CurrentSection.Parent.Title }}",
+		"item": "{{ .CurrentSection.Parent.Permalink }}"
+	},{
+		"@type": "ListItem",
+		"position": 3,
+		"name": "{{ .CurrentSection.Title }}",
+		"item": "{{ .CurrentSection.Permalink }}"
+	},{
+		"@type": "ListItem",
+		"position": 4,
+		"name": "{{ .Title }}",
+		"item": "{{ .Permalink }}"
+	}]
+}
+</script>
+<!-- Subsection pages -->
+{{ else if eq $urlParts 2 }}
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Site",
+		"item": "{{ .Site.BaseURL }}"
+	},{
+		"@type": "ListItem",
+		"position": 2,
+		"name": "{{ .CurrentSection.Title }}",
+		"item": "{{ .CurrentSection.Permalink }}"
+	},{
+		"@type": "ListItem",
+		"position": 3,
+		"name": "{{ .Title }}",
+		"item": "{{ .Permalink }}"
+	}]
+}
+</script>
+<!-- Check for main section pages and meta pages (about, disclaimer) -->
+{{ else if eq $urlParts 1 }}
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Site",
+		"item": "{{ .Site.BaseURL }}"
+	},{
+		"@type": "ListItem",
+		"position": 2,
+		"name": "{{ .Title }}",
+		"item": "{{ .Permalink }}"
+	}]
+}
+</script>
+{{ end }}

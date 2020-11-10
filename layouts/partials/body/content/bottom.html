@@ -1,0 +1,5 @@
+{{ if not .Params.page }}
+    {{ partial "body/content/tags.html" . }}
+    {{ partial "body/content/author.html" . }}
+    {{ partial "body/content/comment.html" . }}
+{{ end }}

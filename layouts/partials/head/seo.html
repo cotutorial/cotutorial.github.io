@@ -1,0 +1,29 @@
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:src" content="{{ if .Params.banner }}{{.Params.banner}}{{ else }}{{ .Site.Params.og_image }}{{ end }}">
+<meta name="twitter:image" content="{{ if .Params.banner }}{{.Params.banner}}{{ else }}{{ .Site.Params.og_image }}{{ end }}">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:site" content="@CoTutorial">
+<meta name="twitter:creator" content="@wisnusaputradev">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}">
+<meta property="og:image" content="{{ if .Params.banner }}{{.Params.banner}}{{ else }}{{ .Site.Params.og_image }}{{ end }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:title" content="{{ .Title }}">
+<meta name="google-site-verification" content="qMqQROYQaYZMrlMxnronbkhUycW3pBOAEH1QqdAbW1s" />
+<meta name="msvalidate.01" content="CEE7BB7D58F4339402A05A52C8D91A35" />
+<meta content='100023577212451' property='fb:admins' />
+<meta content="493615514813695" property="fb:app_id" />
+{{ if .IsPage }}
+{{ if not .PublishDate.IsZero }}
+<meta itemprop="datePublished" content="{{ dateFormat "2006-01-02" .Date }}">
+<meta itemprop="dateModified" content="{{ .Lastmod.Format "2006-01-02" }}">
+<meta property="article:published_time" content="{{ dateFormat "2006-01-02" .Date }}">
+<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02" }}">
+<meta property="og:updated_time" content="{{ dateFormat "2006-01-02" .Date }}">
+{{ end }}
+{{ end }}
+<meta name="application-name" content="{{ .Site.Title }}">
+<meta name="theme-color" content="#ffffff">
+{{ partial "head/sd.html" .}}
+<script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+</script>

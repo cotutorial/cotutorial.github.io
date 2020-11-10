@@ -1,0 +1,32 @@
+<div class="a-i">
+    <a class="reset" aria-label="{{ .Title }}" {{ if .Params.link }}href="{{ .Params.link }}" target="_blank" rel="noopener" {{ else }}href="{{ .RelPermalink }}" {{ end }}>
+        <div class="card">
+            <div class="img-wrapper">
+                {{ if or .Params.banner .Params.tiny }}
+                <amp-img src="{{ if .Params.tiny }} {{ .Params.tiny }} {{ else }} {{ .Params.banner }} {{ end }}" width="347" height="188" layout="responsive" alt="{{ .Title }}" ></amp-img>
+                {{ else }}
+                <amp-img src="/img/default_image.png" width="347" height="188" layout="responsive" alt="{{ .Title }}" />
+                {{ end }}
+            </div>
+            <div class="p-1">
+                {{ if .Params.categories }}
+                    {{ range $cat := .Params.categories }}
+                        <a href="/{{$cat | urlize }}" class="sub-text up" title="{{$cat}}">{{ $cat }}</a>
+                    {{ end }}
+                {{ end }}
+
+                <a class="reset" aria-label="{{ .Title }}" {{ if .Params.link }}href="{{ .Params.link }}" target="_blank" rel="noopener" {{ else }}href="{{ .RelPermalink }}" {{ end }}><h3>{{ .Title }}</h3></a>
+                <div class="row sub-text">
+                    <p class="flex">
+                        {{ if not .PublishDate.IsZero }}
+                            <time datetime="{{ dateFormat " 2006-01-02 " .Date }}">
+                                {{ dateFormat "January 2, 2006" .Date }}
+                            </time>
+                        {{ end }}
+                    </p>
+                    <p class="flex">{{ .ReadingTime }} min read</p>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>

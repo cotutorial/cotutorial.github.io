@@ -1,0 +1,11 @@
+<article>
+    <div class="article">
+        {{- if .Content }}
+        {{ .Content | replaceRE "<img" "<amp-img class='contain' layout='responsive' height='2' width='10'" | replaceRE ">" ">" | safeHTML }}
+        {{ else }}
+        <p>Tidak ada content pada halaman ini. 😅</p>
+        {{- end }}
+    </div>
+</article>
+{{ if eq .Params.type "article" }}
+{{ end }}

@@ -1,0 +1,9 @@
+{{ define "main"}}
+{{ partial "body/hero/page.html" . }}
+<div class="container">
+    <div class="content">
+        {{ partial "body/content/_index.html" . }}
+        {{ partial "body/children/_index.html" . }}
+    </div>
+</div>
+{{ end }}

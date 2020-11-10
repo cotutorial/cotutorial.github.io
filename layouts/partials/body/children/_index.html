@@ -1,0 +1,15 @@
+<!-- belum -->
+<div class="columns">
+    <!-- Defining Pages -->
+    {{ $paginator := .Paginator.Pages }}
+    <!-- Union -->
+    {{ $pages := $paginator | union (.Sections) }}
+    <!-- Looping -->
+    {{ range $pages.ByDate.Reverse }}
+    {{ partial "body/card.html" . }}
+    {{ end }}
+</div>
+<!-- Pagination -->
+<div class="content">
+    {{ partial "body/children/paginator.html" . }}
+</div>

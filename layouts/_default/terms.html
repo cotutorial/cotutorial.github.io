@@ -1,0 +1,15 @@
+{{ define "main"}}
+{{ partial "body/hero/page.html" . }}
+<div class="container">
+    <div class="content">
+        <div>
+            {{ $data := .Data }}
+                {{ range $key, $value := .Data.Terms.ByCount }}
+            <p class="tag" style="display: inline-block;">
+                <a href="{{ $value.Name | urlize }}" style="font-size: calc(100% + {{ $value.Count }}px);" title="{{ $value.Name }}"> {{ $value.Name }}</a>
+            </p>
+            {{ end }}
+        </div>
+    </div>
+</div>
+{{ end }}

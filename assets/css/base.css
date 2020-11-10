@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    font-family: lato, sans-serif;
+    transition: all 0.2s linear;
+    font-size: 17px;
+    line-height: 1.75em;
+    margin: 0;
+    color: #4a4a4a;
+}
+
+.white {
+    color: white;
+}
+h1 {
+    font-size: 240%;
+}
+h2 {
+    font-size: 180%;
+    word-spacing: 2px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+a{
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+    color: #19b5fe;
+}

@@ -1,0 +1,3 @@
+{{ with resources.Get "/css/style.css" | minify }}
+    <style amp-custom> {{ .Content | safeCSS }}  </style>
+{{ end }}

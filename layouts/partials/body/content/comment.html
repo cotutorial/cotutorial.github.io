@@ -1,0 +1,17 @@
+{{ if or (or (.PrevInSection) (.NextInSection)) }}
+<nav class="pagination center pt-3" aria-label="pagination">
+  <!-- Previous Page -->
+  {{ if .PrevInSection }}
+  <a title="{{ .PrevInSection.Title }}" class="pagination-previous" href="{{ .PrevInSection.RelPermalink }}" style="margin-right: auto;">⬅&nbsp;<b>Previous</b>&nbsp;{{ .PrevInSection.Title }}</a>
+  {{ end }}
+  <!-- Next Page -->
+  {{ if .NextInSection }}
+  <a title="{{ .NextInSection.Title }}" class="pagination-next" href="{{ .NextInSection.RelPermalink }}">{{ .NextInSection.Title }}&nbsp;<b>Next</b>&nbsp;➡</a>
+  {{ end }}
+</nav>
+{{ end }}
+
+<div class="pt-3">
+    <amp-facebook-comments width="552" height="310" layout="responsive" data-numposts="5" data-href="{{ .Permalink }}">
+    </amp-facebook-comments>
+</div>

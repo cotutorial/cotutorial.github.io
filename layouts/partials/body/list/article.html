@@ -1,0 +1,6 @@
+{{ if not (eq .Key "0001") }}
+
+{{ range .Pages }}
+    {{ partial "body/card.html" . }}
+{{end}}
+{{ end }}

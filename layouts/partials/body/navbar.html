@@ -1,0 +1,31 @@
+<amp-sidebar id="sidebar" layout="nodisplay" side="right">
+    <div class="amp-custom-sidebar-header">
+        <div role="button" aria-label="close sidebar" on="tap:sidebar.toggle" tabindex="0" id="sidebar-close">
+            ✕
+        </div>
+    </div>
+    <ul class="sidebar-menu">
+        <li class="sidevar-nav-item"><a href="/dart" class="sidebar-nav-link">Dart</a></li>
+        <li class="sidevar-nav-item"><a href="/flutter" class="sidebar-nav-link">Flutter</a></li>
+        <li class="sidevar-nav-item"><a href="/contribusi" class="sidebar-nav-link">Contribution</a></li>
+        <li class="sidevar-nav-item"><a href="#" class="sidebar-nav-link button primary">Join on Github</a></li>
+    </ul>
+</amp-sidebar>
+<header>
+    <div class="menu container">
+        <div class="logo">
+            <a href="{{ .Site.BaseURL }}">
+                <amp-img src="{{ .Site.Params.logo }}" layout="responsive" width="60" height="60" alt="CoTutorial Logo"/>
+            </a>
+        </div>
+        <div class="main-nav">
+            <div class="links">
+                <a class="link" href="/dart">Dart</a>
+                <a class="link" href="/flutter">Flutter</a>
+                <a class="link" href="/contribusi">Contribution</a>
+                <a class="white link button primary" href="https://github.com/cotutorial/cotutorial">Join on Github</a>
+            </div>
+        </div>
+        <button id="sidebar-menu-btn" on="tap:sidebar.toggle">☰</button>
+    </div>
+</header>

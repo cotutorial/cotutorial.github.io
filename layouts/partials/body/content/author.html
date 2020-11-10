@@ -1,0 +1,20 @@
+{{ if .Params.author }}
+<div class="pt-3">
+    <h3>Contributor</h3>
+    <p class="p-1">
+        <a href="https://github.com/cotutorial/cotutorial.github.io/content/edit/master/{{ $.File.Path }}" class="a">Edit artikel ini</a> sebagai salah satu contributor di CoTutorial.</p>
+    <div class="row">
+        {{ range $author := .Params.author }}
+        <div class="author p-1">
+            <div class="img-wrapper">
+                <amp-img src="https://github.com/{{ $author }}.png?size=38" width="50" height="50"></amp-img>
+            </div>
+            <div>
+                <p>Written By</p>
+                <p><b><a href="https://github.com/{{$author}}">@{{$author}}</a></b></p>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

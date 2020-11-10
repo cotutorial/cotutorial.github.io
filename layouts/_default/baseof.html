@@ -1,0 +1,18 @@
+<!doctype html>
+<html amp lang="id">
+
+<head itemscope itemtype="http://schema.org/WebPage">
+    {{ partial "head/_index.html" . }}
+</head>
+<body>
+<amp-auto-ads type="adsense"
+        data-ad-client="ca-pub-7508350169268511">
+</amp-auto-ads>
+    {{ partial "body/content/analis.html" . }}
+    {{ partial "body/navbar.html" . }}
+
+    {{ block "main" . }} {{ end }}
+
+    {{ partial "body/footer.html" }}
+</body>
+</html>

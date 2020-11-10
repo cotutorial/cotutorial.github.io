@@ -1,0 +1,52 @@
+baseURL                       = "https://cotutorial.github.io/"
+title                         = "CoTutorial"
+
+enableEmoji                   = false
+enableRobotsTXT               = true
+footnoteReturnLinkContents    = "↩"
+metaDataFormat                = "yaml"
+
+# Code
+pygmentsCodefences            = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsStyle                 = "manni"
+pygmentsUseClasses            = true
+
+# Pagination
+Paginate                      = 6
+
+# Categories
+preserveTaxonomyNames         = false
+
+[frontmatter]
+lastmod                       = ["lastmod", ":git", ":fileModTime", ":default"]
+
+# RSS
+[outputs]
+    home                      = ["HTML", "RSS"]
+    page                      = ["HTML"]
+
+# Output Formats
+[outputFormats]
+    [outputFormats.RSS]
+        mediatype             = "application/rss"
+        baseName              = "feed"
+
+# SEO
+# og_image - image when shown when shared on social media
+[params]
+    description               = "Buatlah kode dan ilmu anda lebih bermanfaat untuk semua orang."
+    copyright                 = "CoTutorial"
+    og_image                  = "https://res.cloudinary.com/w-cotutorial/image/upload/v1575459960/asset/default_image_kowrdl.png"
+    logo                      = "https://res.cloudinary.com/w-cotutorial/image/upload/v1575459961/asset/logo_obenoa.svg"
+    search_url                = "https://cse.google.com/cse?cx=001590533446650232000%3Aeeccp1szhaf&ie=UTF-8&q={search_term_string}"
+
+disableKinds                  = ["taxonomy"]
+
+[taxonomies]
+    tag                       = "tags"
+
+[sitemap]
+    changefreq                = "always"
+    filename                  = "sitemap.xml"
+    priority                  = 0.5

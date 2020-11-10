@@ -1,0 +1,8 @@
+{{ if .Params.tags }}
+<div class="columns pt-3">
+    {{ range $tag := .Params.tags }}
+        <a href="/tags/{{ $tag | urlize }}" class="tag" title="{{ $tag }}">{{ $tag }}</a>
+    {{ end }}
+</div>
+{{ end }}
+<hr>
